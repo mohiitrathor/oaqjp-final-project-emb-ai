@@ -2,6 +2,8 @@ import requests
 
 
 def emotion_detector(text_to_analyze):
+    """Analyze emotions in the provided text."""
+
     url = (
         "https://sn-watson-emotion.labs.skills.network/"
         "v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
@@ -44,5 +46,8 @@ def emotion_detector(text_to_analyze):
         "fear": emotions["fear"],
         "joy": emotions["joy"],
         "sadness": emotions["sadness"],
-        "dominant_emotion": max(emotions, key=emotions.get)
+        "dominant_emotion": max(
+            emotions,
+            key=emotions.get
+        )
     }
